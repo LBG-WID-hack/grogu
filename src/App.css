@@ -1,18 +1,13 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 20px;
+  padding: 0;
   background-color: #f9f9f9;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   height: 100vh; /* Full screen height */
   flex-direction: column; /* Stack content vertically */
-}
-
-h1, h2 {
-  color: #333;
-  text-align: center;
 }
 
 button {
@@ -45,4 +40,10 @@ p, li {
   width: 100%;
   max-width: 800px; /* Set a max-width for better readability */
   margin: 0 auto; /* Horizontally center */
+}
+
+.header {
+  background-color: #0b333a;
+  color: white;
+  width: 100%;
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Portfolio from './Portfolio';
 import InvestmentOptions from './InvestmentOptions';
 import MarketNews from './MarketNews';
+import './App.css'
 
 function App() {
   const [portfolio, setPortfolio] = useState([]);
@@ -9,7 +10,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Investment Game: Empowering Young Women</h1>
+      <div className="header">
+        <h1>Investment Game</h1>
+        <h2>Empowering Young Women</h2>
+      </div>
       
       {/* Display investment tips */}
       <div>
