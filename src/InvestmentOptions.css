@@ -5,7 +5,7 @@
 
 div.investmentCardWrapper {
     width: 100%;
-    display: block;
+    display: inline-block;
     padding: 5px;
     margin: 0;
 }

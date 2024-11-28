@@ -172,3 +172,6 @@ button.widowsRed {
 .login-submit-button:active {
   transform: scale(0.98);
 }
+.header > h1 {
+  margin: 0;
+}
