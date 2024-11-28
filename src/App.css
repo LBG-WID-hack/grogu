@@ -47,3 +47,27 @@ p, li {
   color: white;
   width: 100%;
 }
+
+div.left {
+  text-align: left;
+}
+
+hr {
+  border-top: 1px solid black;
+}
+
+div.title {
+  display: inline-block;
+  float: left;
+  width: 100%;
+}
+
+div.title > h2 {
+  float: left;
+  display: block;
+}
+
+div.title > h2.right {
+  float: right;
+  display: block;
+}
