@@ -34,16 +34,26 @@ function App() {
       </div>
       : null }
 
-      {/* Display total invested amount */}
-      <div>
-        <h2>Total Amount Invested: £{portfolio.reduce((acc, curr) => acc + (curr.totalCost), 0).toFixed(2)}</h2>
+      {/* Values */}
+      <div className="valuesWrapper">
+        <div className="values investmentValue">
+          <div className="title">
+            <h3>Investments: </h3>
+          </div>
+          <div className="balance">
+            <p>£<span>{portfolio.reduce((acc, curr) => acc + (curr.totalCost), 0).toFixed(2)}</span></p>
+          </div>
+        </div>
+        <div className="values portfolioValue">
+        <div className="title">
+            <h3>Portfolio: </h3>
+          </div>
+          <div className="balance">
+            <p>£<span>{balance.toFixed(2)}</span></p>
+          </div>
+        </div>
       </div>
-
-      {/* Display balance */}
-      <div>
-        <p>Balance: £{balance.toFixed(2)}</p>
-      </div>
-
+      
       {/* Portfolio and Investment Options */}
       <Portfolio portfolio={portfolio} balance={balance} />
       <InvestmentOptions

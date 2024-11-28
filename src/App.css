@@ -71,3 +71,29 @@ div.title > h2.right {
   float: right;
   display: block;
 }
+
+div.valuesWrapper {
+  width: 100%;
+  display: block;
+  float: left;
+}
+
+div.valuesWrapper > .values {
+  display: flex;
+  width: 49.5%;
+  float: left;
+}
+
+div.valuesWrapper > .values > .balance {
+  width: 50%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+div.valuesWrapper > .values > .balance > p {
+  color: red;
+  width: 25%;
+  text-align: left;
+  display: inline;
+  font-size: 1.25rem;
+}
