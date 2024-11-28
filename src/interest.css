@@ -1,6 +1,6 @@
 .interest-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-columns: repeat(3, 1fr); /* 4 columns */
     gap: 40px; /* Space between items */
     margin-bottom: 20px;
   }

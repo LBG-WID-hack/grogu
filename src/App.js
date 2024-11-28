@@ -55,7 +55,7 @@ function App() {
         </div>
         
       ): (
-        <div>
+        <div className="inline">
          {/* Interest Selector */}
          {showInterestSelector ? (
         <div className="InterestSelector">
