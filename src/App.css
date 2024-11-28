@@ -104,13 +104,16 @@ button.widowsRed {
   text-transform: uppercase;
 }
 
+.loginWrapper {
+  width: 100%;
+}
+
 /* Container for the login page */
 .login-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
   max-width: 400px;
   background-color: #fff;
   padding: 2rem;
