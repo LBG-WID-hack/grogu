@@ -9,6 +9,7 @@ function App() {
   const [portfolio, setPortfolio] = useState([]);
   const [balance, setBalance] = useState(10000); // Initial balance
   const [showInvestmentTips, setShowInvestmentTips] = useState(true);
+  const [isInvesting, setIsInvesting] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = () => {
@@ -25,26 +26,7 @@ function App() {
         
       ): (
       <div>
-        <h1>Investment Game: Empowering Young Women</h1>
-      
-        {/* Display investment tips */}
-        <div>
-          <h2>Investment Tips</h2>
-          <p>Start investing early to benefit from compounding returns.</p>
-          <p>Diversify your investments to reduce risk.</p>
-          <p>Understand the risk and reward for each investment option.</p>
-          <p>Stay informed about market trends and news.</p>
-        </div>
 
-        {/* Display total invested amount */}
-        <div>
-          <h2>Total Amount Invested: £{portfolio.reduce((acc, curr) => acc + (curr.totalCost), 0).toFixed(2)}</h2>
-        </div>
-
-        {/* Display balance */}
-        <div>
-          <p>Balance: £{balance.toFixed(2)}</p>
-        </div>
       <div className="header">
         <h1>Investment Game</h1>
         <h2>Empowering Young Women</h2>
@@ -100,15 +82,26 @@ function App() {
         </div>
       </div>
 
-        {/* Portfolio and Investment Options */}
-        <Portfolio portfolio={portfolio} balance={balance} />
+      {!isInvesting ? 
+        <button 
+          class="widowsRed"
+          onClick={() => { setIsInvesting(true); }}
+        >
+          Start Investing Today
+        </button>
+      :
         <InvestmentOptions
           portfolio={portfolio}
           setPortfolio={setPortfolio}
           balance={balance}
           setBalance={setBalance}
         />
-        <MarketNews />
+      }
+
+      {/* Portfolio and Investment Options */}
+      {/* <Portfolio portfolio={portfolio} balance={balance} /> */}
+      
+      <MarketNews />
       </div>
       )}
     </div>
