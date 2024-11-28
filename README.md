@@ -3,12 +3,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Pages To Create
-[X] Educational Page
-[X] Interests page
-[ ] Investment Page
-[X] Login Page
-[ ] Popup
-[ ] WIP Balance Page
+- [X] Educational Page
+- [X] Interests page
+- [ ] Investment Page
+- [X] Login Page
+- [ ] Popup
+- [ ] WIP Balance Page
 
 
 ## Available Scripts
