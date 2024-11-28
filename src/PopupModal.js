@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import facts from "./facts";
 
 const Modal = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [i, setI] = useState(0);
 
   // Automatically open the modal after 3 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
+      setI(Math.floor(Math.random() * facts.length));
       setIsOpen(true);
     }, 3000);
 
@@ -26,14 +29,14 @@ const Modal = () => {
               </button>
             </div>
             <div className="modal-body">
-              <p>Women tend to invest less than men?</p>
+              <p>{facts[i]}</p>
             </div>
             <div className="modal-footer">
-              <button className="modal-button" onClick={closeModal}>
-              See more here
+              <button className="modal-button" disabled onClick={closeModal}>
+              Learn More
               </button>
               <button className="modal-button" onClick={closeModal}>
-              Start investing here
+              Start Investing
               </button>
             </div>
           </div>
