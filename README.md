@@ -2,6 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Pages To Create
+- [X] Educational Page
+- [X] Interests page
+- [ ] Investment Page
+- [X] Login Page
+- [ ] Popup
+- [ ] WIP Balance Page
+
+
 ## Available Scripts
 
 In the project directory, you can run:

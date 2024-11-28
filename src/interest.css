@@ -1,0 +1,81 @@
+.interest-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 4 columns */
+    gap: 40px; /* Space between items */
+    margin-bottom: 20px;
+  }
+  
+  .interest-item {
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center align both image and text */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Add scaling effect on hover */
+  }
+  
+  .interest-item:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+  }
+  
+  .interest-item.selected {
+    transform: scale(1.15); /* Larger scale when selected */
+  }
+  
+  .interest-image {
+    width: 100px; /* Size of circular image */
+    height: 100px;
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 50%; /* Circular shape */
+    border: 3px solid transparent; /* Default border */
+  }
+  
+  .interest-item.selected .interest-image {
+    border-color: #007bff; /* Highlight border for selected items */
+  }
+  
+  .placeholder-image {
+    width: 100px;
+    height: 100px;
+    background-color: #cccccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Circular shape */
+    color: #555555;
+    font-size: 12px;
+  }
+  
+  .interest-name {
+    margin-top: 10px; /* Space between the image and the name */
+    font-size: 16px; /* Font size for the name */
+    font-weight: bold; /* Bold text for the name */
+    color: #333333; /* Text color */
+    text-align: center; /* Center align the name */
+  }
+  
+  .submit-button {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  .submit-button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
+  .submit-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  
+  .status-message {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
