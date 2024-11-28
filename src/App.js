@@ -3,10 +3,13 @@ import Portfolio from './Portfolio';
 import InvestmentOptions from './InvestmentOptions';
 import MarketNews from './MarketNews';
 import './App.css'
+import closePanel from './closePanel';
 
 function App() {
   const [portfolio, setPortfolio] = useState([]);
   const [balance, setBalance] = useState(10000);  // Initial balance
+  const [showInvestmentTips, setShowInvestmentTips] = useState(true);
+
 
   return (
     <div className="App">
@@ -16,13 +19,20 @@ function App() {
       </div>
       
       {/* Display investment tips */}
+      {showInvestmentTips ?
       <div>
-        <h2>Investment Tips</h2>
-        <p>Start investing early to benefit from compounding returns.</p>
-        <p>Diversify your investments to reduce risk.</p>
-        <p>Understand the risk and reward for each investment option.</p>
-        <p>Stay informed about market trends and news.</p>
+        <div className="title">
+          <h2>Investment Tips</h2>
+          <h2 className="right" onClick={() => setShowInvestmentTips(false)}>X</h2>
+        </div>
+        <div className="left">
+          <p>Start investing early to benefit from compounding returns.</p>
+          <p>Diversify your investments to reduce risk.</p>
+          <p>Understand the risk and reward for each investment option.</p>
+          <p>Stay informed about market trends and news.</p>
+        </div>
       </div>
+      : null }
 
       {/* Display total invested amount */}
       <div>
