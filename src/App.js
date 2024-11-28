@@ -8,6 +8,7 @@ function App() {
   const [portfolio, setPortfolio] = useState([]);
   const [balance, setBalance] = useState(10000); // Initial balance
   const [showInvestmentTips, setShowInvestmentTips] = useState(true);
+  const [isInvesting, setIsInvesting] = useState(false);
 
   return (
     <div className="App">
@@ -66,14 +67,25 @@ function App() {
         </div>
       </div>
 
+      {!isInvesting ? 
+        <button 
+          class="widowsRed"
+          onClick={() => { setIsInvesting(true); }}
+        >
+          Start Investing Today
+        </button>
+      :
+        <InvestmentOptions
+          portfolio={portfolio}
+          setPortfolio={setPortfolio}
+          balance={balance}
+          setBalance={setBalance}
+        />
+      }
+
       {/* Portfolio and Investment Options */}
-      <Portfolio portfolio={portfolio} balance={balance} />
-      <InvestmentOptions
-        portfolio={portfolio}
-        setPortfolio={setPortfolio}
-        balance={balance}
-        setBalance={setBalance}
-      />
+      {/* <Portfolio portfolio={portfolio} balance={balance} /> */}
+      
       <MarketNews />
     </div>
   );

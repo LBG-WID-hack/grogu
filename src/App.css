@@ -97,3 +97,9 @@ div.valuesWrapper > .values > .balance > p {
   display: inline;
   font-size: 1.25rem;
 }
+
+button.widowsRed {
+  background-color: #F22D33;
+  font-weight: bold;
+  text-transform: uppercase;
+}
