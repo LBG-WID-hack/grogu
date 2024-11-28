@@ -1,0 +1,40 @@
+div.portfolio {
+    display: block;
+    margin-top: 20px;
+}
+
+div.portfolio > h2 {
+    margin-bottom: 5px;
+}
+
+div.investmentGrid {
+    width: 100%;
+    display: block;
+    padding: 5px;
+    margin: 0;
+}
+
+div.investmentItem {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+p.mt-2 {
+    margin-top: 2px
+}
+
+p.mb-2 {
+    margin-bottom: 2px
+}
+
+.fl-left {
+    float: left;
+    margin-left: 10px;
+    align-items: right;
+}

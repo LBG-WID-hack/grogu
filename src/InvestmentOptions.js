@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './InvestmentOptions.css';
+import './portfolio.css';
 
 function InvestmentOptions({ portfolio, setPortfolio, balance, setBalance }) {
   // Initial investments with random price fluctuations
@@ -87,6 +88,9 @@ function InvestmentOptions({ portfolio, setPortfolio, balance, setBalance }) {
       );
       setPortfolio(updatedPortfolio);
       setBalance(balance + saleValue); // Add the sale value to balance
+      
+
+      // TODO if new qty = 0, remove it
     } else {
       alert('Not enough shares to sell.');
     }
@@ -112,29 +116,40 @@ function InvestmentOptions({ portfolio, setPortfolio, balance, setBalance }) {
           </div>
         ))}
       </div>
-      <h2>Your Portfolio</h2>
-      {portfolio.length === 0 ? (
-        <p>No investments yet. Start investing!</p>
-      ) : (
-        portfolio.map((investment, index) => (
-          <div key={index}>
-            <p>
-              {investment.name}: {investment.quantity} shares (Average buy price: £{(investment.totalCost / investment.quantity).toFixed(2)})
-            </p>
-            <p>Current price: £{investment.price}</p>
-            <button
-              onClick={() => {
-                const quantityToSell = prompt('How many shares do you want to sell?', 1);
-                if (quantityToSell && quantityToSell > 0) {
-                  handleSell(investment.name, parseInt(quantityToSell), parseFloat(investment.price));
-                }
-              }}
-            >
-              Sell
-            </button>
+
+      <div className="portfolio">
+        <h2>Your Portfolio</h2>
+        <div className="investmentGrid">
+          {portfolio.length === 0 ? (
+            <p>No investments yet. Start investing!</p>
+          ) : (
+            portfolio.map((investment, index) => (
+              <div className="investmentItem" key={index}>
+                <div className="fl-left">
+                  <p className="name left bold mt-2 mb-2">{investment.name}</p>
+                  <p className="name left mt-2 mb-2">
+                    <b>{investment.quantity}</b> shares (Average buy price: £{(investment.totalCost / investment.quantity).toFixed(2)})
+                  </p>
+                  <p className="name left mt-2 mb-2">Current price: £{investment.price}</p>
+                </div>
+
+                <div className="fl-left">
+                  <button
+                    onClick={() => {
+                      const quantityToSell = prompt('How many shares do you want to sell?', 1);
+                      if (quantityToSell && quantityToSell > 0) {
+                        handleSell(investment.name, parseInt(quantityToSell), parseFloat(investment.price));
+                      }
+                    }}
+                  >
+                    Sell
+                  </button>
+                </div>
+              </div>
+            ))
+          )}
           </div>
-        ))
-      )}
+      </div>
     </div>
   );
 }
