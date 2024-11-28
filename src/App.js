@@ -3,6 +3,7 @@ import Portfolio from './Portfolio';
 import InvestmentOptions from './InvestmentOptions';
 import MarketNews from './MarketNews';
 import LoginPage from './Login';
+import LogoutButton from './LogoutButton';
 import './App.css';
 
 function App() {
@@ -12,16 +13,19 @@ function App() {
   const [isInvesting, setIsInvesting] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  }
+  const handleLoginStatus = () => {
+    if (isLoggedIn) {
+      setIsLoggedIn(false);
+    } else {
+      setIsLoggedIn(true);
+    }
+  };
 
   return (
     <div className="App">
       {!isLoggedIn ? (
         <div>
-        <LoginPage onLogin={handleLogin} />
-        {console.log(isLoggedIn)}
+        <LoginPage onLogin={handleLoginStatus} />
         </div>
         
       ): (
@@ -102,6 +106,7 @@ function App() {
       {/* <Portfolio portfolio={portfolio} balance={balance} /> */}
       
       <MarketNews />
+      <LogoutButton onLogout={handleLoginStatus} />
       </div>
       )}
     </div>
