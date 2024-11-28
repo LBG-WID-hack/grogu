@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
       {!isLoggedIn ? (
-        <div>
+        <div className="loginWrapper">
         <LoginPage onLogin={handleLogin} />
         {console.log(isLoggedIn)}
         </div>

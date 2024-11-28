@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './InvestmentOptions.css';
 
 function InvestmentOptions({ portfolio, setPortfolio, balance, setBalance }) {
   // Initial investments with random price fluctuations
@@ -86,18 +87,25 @@ function InvestmentOptions({ portfolio, setPortfolio, balance, setBalance }) {
   };
 
   return (
-    <div>
-      <h2>Choose Your Investment</h2>
-      {investmentPrices.map((investment) => (
-        <div key={investment.id}>
-          <button onClick={() => handleInvest(investment)}>
-            Invest in {investment.name} (£{investment.price})
-          </button>
-          <p>Risk: Medium</p>
-          <p>Info: Example investment option for {investment.name}.</p>
-        </div>
-      ))}
+    <div className="">
+      <h2 className="p-5">Based on your interests, here is what you might want to invest in</h2>
 
+      <div className="investmentCardWrapper">
+        {investmentPrices.map((investment) => (
+          <div className="investmentCard" key={investment.id}>
+            <div className="inner">
+              <div className="InvestmentName">
+                <h4>{investment.name}</h4>
+              </div>
+              <p className="left">Risk: Medium</p>
+              <p className="left">Example investment option for {investment.name}.</p>
+              <button className="buyInvestment widowsRed" onClick={() => handleInvest(investment)}>
+                Buy @ £{investment.price}
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
       <h2>Your Portfolio</h2>
       {portfolio.length === 0 ? (
         <p>No investments yet. Start investing!</p>
