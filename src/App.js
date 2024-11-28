@@ -5,6 +5,7 @@ import MarketNews from './MarketNews';
 import LoginPage from './Login';
 import LogoutButton from './LogoutButton';
 import './App.css';
+import PopupModal from './PopupModal';
 
 function App() {
   const [portfolio, setPortfolio] = useState([]);
@@ -30,6 +31,8 @@ function App() {
         
       ): (
       <div>
+
+        <PopupModal/>
 
       <div className="header">
         <h1>Investment Game</h1>
