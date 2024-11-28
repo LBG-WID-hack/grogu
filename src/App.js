@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Portfolio from './Portfolio';
 import InvestmentOptions from './InvestmentOptions';
 import MarketNews from './MarketNews';
+import LoginPage from './Login';
 import './App.css';
 
 function App() {
@@ -9,9 +10,23 @@ function App() {
   const [balance, setBalance] = useState(10000); // Initial balance
   const [showInvestmentTips, setShowInvestmentTips] = useState(true);
   const [isInvesting, setIsInvesting] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  }
 
   return (
     <div className="App">
+      {!isLoggedIn ? (
+        <div>
+        <LoginPage onLogin={handleLogin} />
+        {console.log(isLoggedIn)}
+        </div>
+        
+      ): (
+      <div>
+
       <div className="header">
         <h1>Investment Game</h1>
         <h2>Empowering Young Women</h2>
@@ -87,6 +102,8 @@ function App() {
       {/* <Portfolio portfolio={portfolio} balance={balance} /> */}
       
       <MarketNews />
+      </div>
+      )}
     </div>
   );
 }
