@@ -12,17 +12,23 @@ function InvestmentOptions({ portfolio, setPortfolio, balance, setBalance }) {
 
   const [investmentPrices, setInvestmentPrices] = useState(initialInvestments);
 
+  const doSetInitialPrices = () => {
+    setInvestmentPrices((prevPrices) =>
+      prevPrices.map((investment) => ({
+        ...investment,
+        price: (
+          investment.basePrice + Math.random() * (50) - 25 // Random fluctuation between -25 and 25
+        ).toFixed(2),
+      }))
+    );
+  }
+
   // Simulate random price changes every 5 seconds
   useEffect(() => {
+    doSetInitialPrices(); // Do immediately on load
+
     const interval = setInterval(() => {
-      setInvestmentPrices((prevPrices) =>
-        prevPrices.map((investment) => ({
-          ...investment,
-          price: (
-            investment.basePrice + Math.random() * (50) - 25 // Random fluctuation between -25 and 25
-          ).toFixed(2),
-        }))
-      );
+      doSetInitialPrices();
     }, 5000); // Update every 5 seconds
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
