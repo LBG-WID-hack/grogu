@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [X] Interests page
 - [ ] Investment Page
 - [X] Login Page
-- [ ] Popup
+- [X] Popup
 - [ ] WIP Balance Page
 
 
