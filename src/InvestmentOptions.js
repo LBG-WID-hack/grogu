@@ -85,12 +85,11 @@ function InvestmentOptions({ portfolio, setPortfolio, balance, setBalance }) {
               totalCost: item.totalCost - quantityToSell * item.price, // Subtract the cost of sold shares
             }
           : item
-      );
+      ).filter((item) => item.quantity > 0); // Remove items with quantity 
       setPortfolio(updatedPortfolio);
       setBalance(balance + saleValue); // Add the sale value to balance
       
 
-      // TODO if new qty = 0, remove it
     } else {
       alert('Not enough shares to sell.');
     }
