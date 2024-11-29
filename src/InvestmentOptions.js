@@ -111,6 +111,15 @@ function InvestmentOptions({ portfolio, setPortfolio, balance, setBalance }) {
               <button className="buyInvestment widowsRed" onClick={() => handleInvest(investment)}>
                 Buy @ £{investment.price}
               </button>
+              <button 
+                className='sellInvestment' onClick={() => {
+                const quantityToSell = prompt('How many shares do you want to sell?', 1);
+                if (quantityToSell && quantityToSell > 0) {
+                  handleSell(investment.name, parseInt(quantityToSell), parseFloat(investment.price));
+                  }
+                }} >
+                  Sell
+                </button>
             </div>
           </div>
         ))}
