@@ -8,10 +8,19 @@ body {
   align-items: center;
   height: 100vh; /* Full screen height */
   flex-direction: column; /* Stack content vertically */
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.main-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
 
 button {
-  background-color: #007BFF;
+  background-color: #ff4d4d;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -32,20 +41,31 @@ p, li {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
   width: 100%;
+
   max-width: 800px; /* Set a max-width for better readability */
   margin: 0 auto; /* Horizontally center */
 }
 
 .header {
-  background-color: #0b333a;
+  background-color: #ff4d4d;
   color: white;
   width: 100%;
 }
 
-div.left {
-  text-align: left;
+.h2{
+  background-color: #ff4d4d;
+}
+
+
+
+.investment-tips {
+  text-align: left !important;
+  border-radius: 24px;
+  background-color: #D9D9D9;
+  padding: 24px;
 }
 
 hr {
@@ -95,13 +115,27 @@ div.valuesWrapper > .values > .balance > p {
 }
 
 button.widowsRed {
-  background-color: #F22D33;
-  font-weight: bold;
-  text-transform: uppercase;
+  background-color: #ff4d4d;
+  border-radius: 5px;
+  font-size:1rem;
+}
+
+button.widowsRed:hover {
+  background-color: #d1232c;
 }
 
 .loginWrapper {
   width: 100%;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Container for the login page */
@@ -158,7 +192,7 @@ button.widowsRed {
   color: #fff;
   font-size: 1rem;
   border: none;
-  border-radius: 25px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -272,11 +306,11 @@ button.widowsRed {
 }
 
 .modal-button {
-  background-color: #f22d33;
+  background-color: #ff4d4d;
   border: none;
   color: white;
   padding: 10px 20px;
-  border-radius: 24px; /* Rounded buttons */
+  border-radius: 5px; /* Rounded buttons */
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
@@ -284,4 +318,43 @@ button.widowsRed {
 
 .modal-button:hover {
   background-color: #d1232c; /* 20% darker on hover */
+}
+
+.interest-item.selected .interest-image{
+  border-color: #ff4d4d !important;
+}
+.submit-button{
+  background-color: #ff4d4d !important;
+}
+
+.submit-button:hover{
+  background-color: #d1232c !important;
+}
+
+.logout-button{
+  background-color: #ff4d4d !important;
+  border-radius: 5px;
+}
+
+.logout-button:hover{
+  background-color: #d1232c !important;
+}
+
+.show-investment-buttons{
+  border-radius: 5px !important;
+  background-color: #ff4d4d !important;
+}
+
+.show-investment-buttons:hover{
+  border-radius: 5px !important;
+  background-color: #d1232c !important;
+}
+.sellInvestment{
+  border-radius: 5px !important;
+  background-color: #ff4d4d !important;
+}
+
+.sellInvestment:hover{
+  border-radius: 5px !important;
+  background-color: #d1232c !important;
 }

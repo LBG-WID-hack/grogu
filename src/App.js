@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Portfolio from './Portfolio';
 import InvestmentOptions from './InvestmentOptions';
 import MarketNews from './MarketNews';
 import LoginPage from './Login';
@@ -30,7 +29,7 @@ function App() {
 
   const toggleInterest = (index) => {
     if (selectedInterests.includes(index)) {
-      setSelectedInterests(selectedInterests.filter(item => item !== index));
+      setSelectedInterests(selectedInterests.filter((item) => item !== index));
     } else if (selectedInterests.length < 3) {
       setSelectedInterests([...selectedInterests, index]);
     }
@@ -38,12 +37,12 @@ function App() {
 
   const handleSubmitInterests = () => {
     if (selectedInterests.length === 3) {
-      setSubmissionStatus("Submitted!"); // Set state to indicate success
-      const selected = selectedInterests.map(i => interests[i].name);
-      console.log(`Selected Interests: ${selected.join(", ")}`);
+      setSubmissionStatus('Submitted!'); // Set state to indicate success
+      const selected = selectedInterests.map((i) => interests[i].name);
+      console.log(`Selected Interests: ${selected.join(', ')}`);
       setShowInterestSelector(false);
     } else {
-      setSubmissionStatus("Please select 3 interests.");
+      setSubmissionStatus('Please select 3 interests.');
     }
   };
 
@@ -62,7 +61,9 @@ function App() {
                 {interests.map((interest, index) => (
                   <div
                     key={index}
-                    className={`interest-item ${selectedInterests.includes(index) ? "selected" : ""}`}
+                    className={`interest-item ${
+                      selectedInterests.includes(index) ? 'selected' : ''
+                    }`}
                     onClick={() => toggleInterest(index)}
                   >
                     {interest.img ? (
@@ -85,78 +86,90 @@ function App() {
 
               {/* Display status message */}
               {submissionStatus && (
-                <div className="status-message">
-                  {submissionStatus}
-                </div>
+                <div className="status-message">{submissionStatus}</div>
               )}
             </div>
           ) : (
-            <div className="Maingame">
-              <div className="header">
-                <h1>Investment Game</h1>
-                <h2>Empowering Young Women</h2>
-              </div>
+            <>
+              {/* Main Page Content */}
+              <div className="main-page">
+                <div className="header">
+                  <h1>Investment Game</h1>
+                  <h2>Empowering Young Women</h2>
+                </div>
 
-              <PopupModal />
+                <PopupModal />
 
-              {/* Toggle Button */}
-              {!showInvestmentTips && (
-                <button onClick={() => setShowInvestmentTips(true)} className="toggleButton">
-                  Show Investment Tips
-                </button>
-              )}
+                {/* Toggle Button */}
+                {!showInvestmentTips && (
+                  <button
+                    onClick={() => setShowInvestmentTips(true)}
+                    className="toggleButton show-investment-buttons"
+                  >
+                    Show Investment Tips
+                  </button>
+                )}
 
-              {/* Display investment tips */}
-              {showInvestmentTips && (
-                <div className="investmentTips">
-                  <div className="title">
-                    <h2>Investment Tips</h2>
-                    <h2 className="right" onClick={() => setShowInvestmentTips(false)} style={{ cursor: 'pointer' }}>
-                      X
-                    </h2>
-                  </div>
-                  <div className="left">
+                {/* Display investment tips */}
+                {showInvestmentTips && (
+                  <div className="investment-tips">
+                    <div className="title">
+                      <h2>Investment Tips</h2>
+                      <h2
+                        className="right"
+                        onClick={() => setShowInvestmentTips(false)}
+                        style={{ cursor: 'pointer' }}
+                      >
+                        X
+                      </h2>
+                    </div>
+
                     <p>Start investing early to benefit from compounding returns.</p>
                     <p>Diversify your investments to reduce risk.</p>
                     <p>Understand the risk and reward for each investment option.</p>
                     <p>Stay informed about market trends and news.</p>
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* Values */}
-              <div className="valuesWrapper">
-                <div className="values investmentValue">
-                  <div className="title">
-                    <h3>Investments: </h3>
+                {/* Values */}
+                <div className="valuesWrapper">
+                  <div className="values investmentValue">
+                    <div className="title">
+                      <h3>Investments:</h3>
+                    </div>
+                    <div className="balance">
+                      <p>
+                        £
+                        <span>
+                          {portfolio.reduce((acc, curr) => acc + curr.totalCost, 0).toFixed(2)}
+                        </span>
+                      </p>
+                    </div>
                   </div>
-                  <div className="balance">
-                    <p>
-                      £
-                      <span>
-                        {portfolio.reduce((acc, curr) => acc + curr.totalCost, 0).toFixed(2)}
-                      </span>
-                    </p>
+                  <div className="values portfolioValue">
+                    <div className="title">
+                      <h3>Portfolio:</h3>
+                    </div>
+                    <div className="balance">
+                      <p>
+                        £<span>{balance.toFixed(2)}</span>
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="values portfolioValue">
-                  <div className="title">
-                    <h3>Portfolio: </h3>
-                  </div>
-                  <div className="balance">
-                    <p>£<span>{balance.toFixed(2)}</span></p>
-                  </div>
-                </div>
+
+                {!isInvesting && (
+                  <button
+                    className="widowsRed"
+                    onClick={() => setIsInvesting(true)}
+                  >
+                    Start Investing Today
+                  </button>
+                )}
               </div>
 
-              {!isInvesting ? (
-                <button
-                  className="widowsRed"
-                  onClick={() => setIsInvesting(true)}
-                >
-                  Start Investing Today
-                </button>
-              ) : (
+              {/* Investment Options Section (Outside main-page) */}
+              {isInvesting && (
                 <InvestmentOptions
                   portfolio={portfolio}
                   setPortfolio={setPortfolio}
@@ -164,11 +177,7 @@ function App() {
                   setBalance={setBalance}
                 />
               )}
-
-              {/* Market News and Logout */}
-              <MarketNews />
-              <LogoutButton onLogout={handleLoginStatus} />
-            </div>
+            </>
           )}
         </div>
       )}
