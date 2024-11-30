@@ -4,6 +4,7 @@ import logo from '../src/assets/sw_logo_no_background.png'
 
 const LoginPage = ({onLogin}) => {
   return (
+    <body className='login-body'>
     <div className="login-container">
       <div className="logo-container">
         <img src={logo} alt="Logo" className="logo" />
@@ -18,6 +19,7 @@ const LoginPage = ({onLogin}) => {
         <button type="submit" className="login-submit-button" onClick={onLogin}>Submit</button>
       </form>
     </div>
+    </body>
   );
 };
 
